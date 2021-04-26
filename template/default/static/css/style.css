@@ -1,0 +1,374 @@
+/*
+
+    McStatus.CN Mdui Style
+
+*/
+
+/* main theme style*/
+body {
+    font-family: roboto;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #5e5e5e;
+    background-color: #f7f8f9;
+}
+
+.mdui-tooltip {
+    font-weight: 400;
+    font-size: 11px;
+}
+
+.mdui-toolbar[class*=mdui-color-]:not(.mdui-color-transparent) .mdui-btn:hover {
+    background-color: rgba(60,64,67,0.08)!important;
+    outline: none;
+}
+
+.mdui-hoverable:focus, .mdui-hoverable:hover {
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.1);
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.mdui-textfield-focus .mdui-textfield-input, .mdui-textfield-focus .mdui-textfield-input:hover {
+    border-bottom-color: #2962ff;
+    box-shadow: 0 1px 0 0 #2962ff;
+}
+
+.mdui-textfield-floating-label.mdui-textfield-focus .mdui-textfield-label {
+    color: #1a73e8;
+}
+.page-loading {
+    padding: 3em 0;
+    text-align: center;
+}
+
+.page-content {
+    display: none;
+}
+
+/* header to mdui-appbar */
+
+header.mdui-appbar {
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,.28);
+    background-color: #364c66;
+}
+
+header .mdui-container {
+    padding: 0;
+}
+
+header.mdui-appbar .search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 322px;
+    height: 36px;
+    margin-left: 30px;
+    background-color: rgba(0,0,0,.24);
+    border-radius: 8px;
+    transition-duration: .18s;
+    transition-property: background-color,box-shadow;
+}
+
+.mdui-theme-layout-dark header.mdui-appbar .search-bar {
+    background-color: #353535;
+}
+
+.search-bar input {
+    flex: 1;
+    height: 46px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+}
+
+.search-bar input::-webkit-input-placeholder {
+    color: #ffffff;
+    opacity: .3;
+}
+
+.mdui-theme-layout-dark .search-bar input {
+    color: #ffffff;
+}
+
+.search-bar .back,.search-bar .cancel, header .mdui-toolbar .search-icon {
+    display: none;
+}
+
+.search-bar .back,.search-bar .cancel,.search-bar .submit {
+    margin: 0 5px;
+}
+
+header .search-bar.not-empty .cancel {
+    display: flex;
+}
+
+header .mdui-toolbar.mobile i {
+    color: #5e5e5e;
+}
+
+header .mdui-toolbar.mobile .search-bar .back {
+    display: flex;
+}
+
+header .mdui-toolbar.mobile .avatar, header .mdui-toolbar.mobile .search-icon, header .mdui-toolbar.mobile .submit {
+    display: none;
+}
+
+header.mdui-appbar .mdui-toolbar.mobile .search-bar {
+    position: absolute;
+    display: flex;
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 0;
+    left: 0;
+}
+
+header .mobile .search-bar input {
+    color: #353535;
+}
+
+header .mobile .search-bar input::-webkit-input-placeholder {
+    color: #353535;
+    opacity: .8;
+}
+
+/* #sidebar */
+#sidebar {
+    box-shadow: 0 1px 1px rgb(0 0 0 / 15%);
+}
+
+#sidebar .mdui-list .mdui-list-item .mdui-list-item-icon {
+    opacity: .5;
+    transition: opacity ease-out .3s;
+}
+
+#sidebar .mdui-list .mdui-list-item:hover .mdui-list-item-icon {
+    opacity: .8;
+}
+
+#sidebar .mdui-list .mdui-list-item .mdui-list-item-content {
+    opacity: .8;
+    font-weight: 600;
+}
+
+#sidebar .mdui-list .mdui-list-item:hover .mdui-list-item-content {
+    opacity: 1;
+}
+
+#sidebar .mdui-list .mdui-list-item-active {
+    background: transparent;
+    border-right: 2px solid #308af3;
+}
+
+#sidebar .mdui-list .mdui-list-item-active .mdui-list-item-icon {
+    opacity: 1;
+    color: #1a73e8;
+}
+
+#sidebar .copyright {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 13px 16px;
+}
+
+#sidebar .copyright p {
+    margin: 0;
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 10px 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#sidebar .copyright a {
+    color: rgba(0,0,0,.52);
+    text-decoration: none;
+}
+
+#sidebar .copyright a:hover {
+    text-decoration: underline;
+}
+
+.mdui-drawer .mdui-list .mdui-list-item-content {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.mdui-drawer .mdui-list .mdui-list-item-icon {
+    transform: scale(.875);
+}
+
+/* card style */
+.mdui-card {
+    position: relative;
+    background: #fff;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 15%);
+    margin-bottom: 16px;
+    border-radius: 0;
+}
+
+.mdui-card-title {
+    background: #f8f8f8;
+}
+
+.mdui-card-title span {
+    color: #818181;
+    font-size: 18px;
+    line-height: 36px;
+}
+
+.page-heading h1 {
+    color: rgba(17,43,74,.84);
+    opacity: .9;
+}
+
+.stats-card {
+    position: relative;
+    padding: 1.5em 1.5em;
+}
+
+.stats-card .icon {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+}
+
+.stats-card .icon i {
+    font-size: 50px;
+    color: #364c66;
+    opacity: .5;
+}
+
+.stats-card .content {
+    margin-left: 76px;
+    height: 64px;
+}
+
+.stats-card .content .title {
+    margin: 4px 0;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: .6;
+}
+
+.stats-card .content .value {
+    font-size: 25px;
+    font-weight: 500;
+    opacity: .8;
+}
+
+.stats-card .content .value b {
+    margin-left: 4px;
+    font-size: 14px;
+    opacity: .6;
+}
+
+.stats-card .content .value b span {
+    margin-left: 2px;
+}
+
+.stats-card .mdui-progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+}
+
+/* Login Card */
+.m-profile {
+    max-width: 448px;
+    margin: 0 auto;
+    overflow-y: hidden;
+    box-shadow: 0 10px 25px 0 rgb(50 50 93 / 7%), 0 5px 15px 0 rgb(0 0 0 / 7%);
+    border-radius: .25rem;
+}
+
+.m-profile .actions {
+    margin-top: 24px;
+}
+
+.m-profile .close,.m-profile .back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: block;
+    color: #fff;
+}
+
+.m-profile .mdui-card-title {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    padding: 146px 40px 28px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: left;
+    color: #fff;
+}
+
+.m-profile .form {
+    padding: 0 40px 40px;
+}
+
+.m-profile .send-email-field {
+    margin-right: 116px;
+    overflow: visible;
+}
+
+.m-profile .send-email {
+    position: absolute;
+    right: -116px;
+    bottom: 29px;
+}
+
+.m-login .mdui-card-title {
+    background-color: #607d8b;
+}
+
+.m-resetpass .mdui-card-title {
+    background-color: #607d8b;
+}
+
+.m-resetpass .step-2 {
+    display: none;
+}
+
+@media (min-width: 600px){
+    .slide-list .slide-list-item {
+        padding-right: 8px!important;
+        padding-left: 8px!important;
+    }
+}
+
+@media (min-width: 1024px){
+    .slide-list .slide-list-item {
+        width: 25%;
+    }
+}
+@media (max-width: 1023px){
+    .content {
+        padding: 0;
+    }
+    .container-content {
+        padding-left: 0;
+    }
+    .menu {
+        display: block;
+    }
+    header.mdui-appbar .mdui-toolbar .search-bar {
+        display: none;
+    }
+    header.mdui-appbar .search-icon {
+        display: block;
+    }
+}
