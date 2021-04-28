@@ -8,29 +8,10 @@
                 </div>
 
                 <div class="mdui-list" mdui-collapse="{accordion: true}">
-                    <li class="mdui-list-item mdui-ripple mdui-list-item-active">
-                        <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
-                        <div class="mdui-list-item-content">仪表盘</div>
-                    </li>
-                    <li class="mdui-list-item mdui-ripple">
-                        <i class="mdui-list-item-icon mdui-icon material-icons">kitchen</i>
-                        <div class="mdui-list-item-content">设备管理</div>
-                    </li>
-                    <li class="mdui-list-item mdui-ripple">
-                        <i class="mdui-list-item-icon mdui-icon material-icons">map</i>
-                        <div class="mdui-list-item-content">路线管理</div>
-                    </li>
-                    <li class="mdui-list-item mdui-ripple">
-                        <i class="mdui-list-item-icon mdui-icon material-icons">dns</i>
-                        <div class="mdui-list-item-content">MQTT管理</div>
-                    </li>
-                    <li class="mdui-list-item mdui-ripple">
-                        <i class="mdui-list-item-icon mdui-icon material-icons">equalizer</i>
-                        <div class="mdui-list-item-content">大屏监控</div>
-                    </li>
-                    <li class="mdui-list-item mdui-ripple">
-                        <i class="mdui-list-item-icon mdui-icon material-icons">settings</i>
-                        <div class="mdui-list-item-content">站点设置</div>
+                    <?php $Menu->getMenu(); ?>
+                    <li class="mdui-list-item mdui-ripple action-logout">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">exit_to_app</i>
+                        <div class="mdui-list-item-content">登出</div>
                     </li>
                 </div>
             </div>

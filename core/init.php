@@ -11,6 +11,7 @@ include 'class/User.php';
 include 'class/Mail.php';
 include 'class/Template.php';
 include 'class/Title.php';
+include 'class/Menu.php';
 include 'class/Device.php';
 include 'class/Session.php';
 include 'function/function.php';
@@ -19,6 +20,7 @@ include 'function/function.php';
 $Session = new Session();
 $Title = new Title();
 $Template = new Template();
+$Menu = new Menu();
 $User = new User();
 
 ?>

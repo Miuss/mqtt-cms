@@ -175,7 +175,7 @@ $("#CreateDevice .action-btn-create-device").on('click', function (e) {
 });
 
 /* Logout */
-$("#user_navbar .action-btn-logout").on('click', function (e) {
+$(".action-logout").on('click', function (e) {
     $.post("/api/?act=logout",function(x){
         if(x.status=="success"){
             window.location.replace("/");

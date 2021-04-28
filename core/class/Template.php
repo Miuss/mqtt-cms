@@ -19,7 +19,9 @@ class Template {
     }
 
     public function getHeader() {
+        global $Title;
         global $User;
+        global $Menu;
         include_once $this->dir."/public/header.php";
     }
 
