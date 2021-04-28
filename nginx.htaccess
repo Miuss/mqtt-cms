@@ -1,0 +1,5 @@
+ rewrite ^/$ /index.php;
+
+ rewrite ^/([^/]+)/([^/]+)$ /index.php?page=$1&view=$2;
+ 
+ rewrite ^/device/setting/([^/]+)$ /index.php?page=device&view=setting&device=$1;

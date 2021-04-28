@@ -11,6 +11,14 @@
                     <button type="submit" class="submit mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></button>
                     <input type="text" placeholder="搜索设备或路线">
                     <button type="button" class="cancel mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">close</i></button>
+                    <ul class="search-list h">
+                        <li>
+                            <a>
+                                <h3>键入内容索引设备及路线</h3>
+                                <span>Type the content indexing devices.</span>
+                            </a>
+                        </li>
+                    </ul>
                 </form>
                 <div class="mdui-toolbar-spacer"></div>
                 <div class="search-icon mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></div>

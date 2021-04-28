@@ -14,10 +14,29 @@ function IsPC() {
     return flag;
 }
 
+function timestampToTime(timestamp) {
+    var date = new Date(timestamp * 1000);
+    Y = date.getFullYear() + '-';
+    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    D = date.getDate() + ' ';
+    h = date.getHours() + ':';
+    m = date.getMinutes() + ':';
+    s = date.getSeconds();
+    return Y+M+D+h+m+s;
+}
+
 function show_page(time) {
     $(".page-loading").hide();
     $(".page-content").fadeIn(time);
 }
+
+$(".search-bar input").on('focus', function () {
+    $(".search-bar .search-list").removeClass('h');
+});
+
+$(".search-bar input").on('blur', function () {
+    $(".search-bar .search-list").addClass('h');
+});
 
 $(".search-bar input").on('input', function (e) {
     if($(".search-bar input").val()!=""){
@@ -140,6 +159,21 @@ $(".m-login .action-btn-login").on('click', function (e) {
     }
 });
 
+/* Device Create */
+$("#CreateDevice .action-btn-create-device").on('click', function (e) {
+    var name = $("#CreateDevice input[name='name']").val();
+    var password = $("#CreateDevice input[name='password']").val();
+    if(name !=""&&password !=""){
+        $.post("/api/?act=device-create",{name: name,password: password},function(x){
+            if(x.status=="error"){
+                $(".m-login").find(".mdui-textfield-error").eq(1).html(x.msg);
+                $(".m-login").find(".mdui-textfield").eq(1).addClass("mdui-textfield-invalid-html5");
+            }else{
+            }
+        });
+    }
+});
+
 /* Logout */
 $("#user_navbar .action-btn-logout").on('click', function (e) {
     $.post("/api/?act=logout",function(x){
@@ -147,4 +181,13 @@ $("#user_navbar .action-btn-logout").on('click', function (e) {
             window.location.replace("/");
         }
     });
+});
+
+$(".copy").on("click", function(e) {
+    $("body").append("<input id='copy-input'>");
+    $("#copy-input").val($(this).attr("copy"));
+    $("#copy-input").select();
+    document.execCommand("copy");
+    $("#copy-input").remove();
+    mdui.snackbar({message: "已为您复制所选内容",position: 'right-bottom'});
 });
