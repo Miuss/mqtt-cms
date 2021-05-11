@@ -32,7 +32,7 @@
             $user_id = $_COOKIE["uid"];
             $code = $_COOKIE["code"];
             
-            $result = $DB->query("SELECT * FROM `users` WHERE `id` = '{$user_id}' AND `login_code` = '{$code}'");
+            $result = $DB->query("SELECT * FROM `users` WHERE `id` = '{$user_id}' AND `login_code` = '{$code}' AND `active` = 1");
             $info = $result->fetch_object();
 
             if($info==1){
@@ -59,9 +59,9 @@
             global $Session;
 
             if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
-                $result = $DB->query("SELECT * FROM `users` WHERE `email` = '{$username}'");
+                $result = $DB->query("SELECT * FROM `users` WHERE `email` = '{$username}' AND `active` = 1");
             } else {
-                $result = $DB->query("SELECT * FROM `users` WHERE `username` = '{$username}'");
+                $result = $DB->query("SELECT * FROM `users` WHERE `username` = '{$username}' AND `active` = 1");
             }
             
             $info = $result->fetch_object();
@@ -169,6 +169,22 @@
             $result = $DB->query("SELECT * FROM `users` WHERE `email` = '{$email}'");
             $info = $result->fetch_object();
             return $info->id;
+        }
+
+        public function get_user_list() {
+            global $DB;
+
+            $result = $DB->query("SELECT * FROM `users`");
+            while($info = $result->fetch_object()) {
+                $data[] = array(
+                    "id" => $info->id,
+                    "username" => $info->username,
+                    "active" => $info->active,
+                    "last_activity" => $info->last_activity,
+                    "regdate" => $info->regdate
+                );
+            }
+            return $data;
         }
 
     }

@@ -1,6 +1,6 @@
 <?php
     if(!$User->islogin) {
-        Redirect("/index.php?page=user&view=login");
+        Redirect("/user/login");
     }
 ?>
     <body class="mdui-appbar-with-toolbar mdui-theme-primary-blue-grey mdui-shadow-0 mdui-loaded mdui-drawer-body-left">
@@ -17,7 +17,7 @@
                         </div>
                         <div class="mdui-row mdui-m-t-2">
                             <div class="mdui-col-md-3">
-                                <div class="mdui-card stats-card device-card">
+                                <div class="mdui-card stats-card device-card mdui-ripple mdui-ripple-theme">
                                     <div class="icon">
                                         <i class="mdui-icon material-icons">kitchen</i>
                                     </div>

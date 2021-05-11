@@ -14,15 +14,23 @@ function IsPC() {
     return flag;
 }
 
-function timestampToTime(timestamp) {
+function dateFormat(fmt,timestamp){
     var date = new Date(timestamp * 1000);
-    Y = date.getFullYear() + '-';
-    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-    D = date.getDate() + ' ';
-    h = date.getHours() + ':';
-    m = date.getMinutes() + ':';
-    s = date.getSeconds();
-    return Y+M+D+h+m+s;
+    var o = {
+     "M+" : date.getMonth()+1, //月份
+     "d+" : date.getDate(), //日
+     "h+" : date.getHours(), //小时
+     "m+" : date.getMinutes(), //分
+     "s+" : date.getSeconds(), //秒
+     "q+" : Math.floor((date.getMonth()+3)/3), //季度
+     "S" : date.getMilliseconds() //毫秒
+    };
+    if(/(y+)/.test(fmt))
+        fmt=fmt.replace(RegExp.$1, (date.getFullYear()+"").substr(4 - RegExp.$1.length));
+    for(var k in o)
+    if(new RegExp("("+ k +")").test(fmt))
+        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+    return fmt;
 }
 
 function show_page(time) {
@@ -142,6 +150,22 @@ $(".m-resetpass .action-btn-resetpass").on('click', function (e) {
     }
 });
 
+/* Register */
+
+$(".m-create-user .action-btn-create-user").on('click', function (e) {
+    var email = $(".m-create-user input[name='email']").val();
+    var username = $(".m-create-user input[name='username']").val();
+    var password = $(".m-create-user input[name='password']").val();
+    if(username !=""&&password !=""){
+        $.post("/api/?act=user-create",{email: email,username: username,password: password},function(x){
+            if(x.status == "error"){
+                mdui.snackbar({message: x.msg,position: 'right-bottom'});
+            }else{
+                window.location.replace("/");
+            }
+        });
+    }
+});
 
 /* Login */
 $(".m-login .action-btn-login").on('click', function (e) {
@@ -157,6 +181,16 @@ $(".m-login .action-btn-login").on('click', function (e) {
             }
         });
     }
+});
+
+$(".save-user-security").click(function(){
+    var oldpassword = $("input[name='oldpassword']").val(),newpassword = $("input[name='newpassword']").val(),renewpassword = $("input[name='renewpassword']").val(),email = $("input[name='email']").val();
+    $.post("/api/?act=user-eidt-security",{oldpassword: oldpassword,newpassword: newpassword,renewpassword: renewpassword,email: email},function(x){
+        mdui.snackbar({message: x.msg,position: 'right-bottom'});
+        if(x.status == "success"){
+            window.location.reload();
+        }
+    });
 });
 
 /* Device Create */
@@ -190,4 +224,14 @@ $(".copy").on("click", function(e) {
     document.execCommand("copy");
     $("#copy-input").remove();
     mdui.snackbar({message: "已为您复制所选内容",position: 'right-bottom'});
+});
+
+function warnings(text) {
+    $("body").prepend("<div class='alert'>"+
+        "<div class='mdui-container'>"+text+"<button class='btn-close'><i class='mdui-icon material-icons'>close</i></button></div>"
+    +"</div>");
+}
+
+$("body").on('click', '.alert .btn-close',function(e){
+    $(this).parent().parent().remove();
 });

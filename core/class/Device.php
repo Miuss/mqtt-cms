@@ -91,10 +91,10 @@ class Device {
         $chart->data = [];
         $chart->chartdata = "[";
 
-        $beginMonthday=mktime(date('H'),date('i'),date('s'),date('m'),date('d')-30,date('Y'));
-        $endMonthday=mktime(date('H'),date('i'),date('s'),date('m'),date('d'),date('Y'))-1;
+        $beginWeek=mktime(date('H'),date('i'),date('s'),date('m'),date('d')-5,date('Y'));
+        $endWeek=mktime(date('H'),date('i'),date('s'),date('m'),date('d'),date('Y'))-1;
 
-        $result = $DB->query("SELECT * FROM `mqtt_msg` WHERE `client_id` = '{$device}' AND `updatetime` BETWEEN '{$beginMonthday}' AND '{$endMonthday}' ORDER BY `updatetime` ASC");
+        $result = $DB->query("SELECT * FROM `mqtt_msg` WHERE `client_id` = '{$device}' AND `updatetime` BETWEEN '{$beginWeek}' AND '{$endWeek}' ORDER BY `updatetime` ASC");
         while($data = $result->fetch_object()){
             $json = json_decode($data->msg)->params;
             $data->msg = $json;

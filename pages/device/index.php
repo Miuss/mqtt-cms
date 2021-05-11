@@ -1,6 +1,6 @@
 <?php
     if(!$User->islogin) {
-        Redirect("/index.php?page=user&view=login");
+        Redirect("/user/login");
     }
     $Device = new Device();
     $result = $Device->getDeviceList();
@@ -31,6 +31,7 @@
                                             <tr>
                                                 <th>设备ID</th>
                                                 <th>设备名称</th>
+                                                <th>设备状态</th>
                                                 <th>创建时间</th>
                                                 <th>最近上线时间</th>
                                                 <th>操作</th>
@@ -82,8 +83,9 @@
                     t += "<tr><td>"+ 
                     value.id +"</td><td>"+ 
                     value.name +"</td><td>"+ 
-                    timestampToTime(value.createtime) +"</td><td>"+ 
-                    (value.onlinetime?timestampToTime(value.onlinetime):"未上线过") +
+                    (value.online?"<i class='mdui-icon material-icons status online'>fiber_manual_record</i> 在线":"<i class='mdui-icon material-icons status offine'>fiber_manual_record</i> 离线") +"</td><td>"+ 
+                    dateFormat("yyyy-MM-dd hh:mm:ss",value.createtime) +"</td><td>"+ 
+                    (value.onlinetime?dateFormat("yyyy-MM-dd hh:mm:ss",value.onlinetime):"未上线过") +
                     "</td><td><a class='mdui-text-color-blue-800' href='/device/setting/"+ value.id +"'>设备管理</a></td></tr>";
                 });
                 $(".device-list tbody").html(t);
@@ -97,8 +99,9 @@
                         t += "<tr><td>"+ 
                         value.id +"</td><td>"+ 
                         value.name +"</td><td>"+ 
-                        timestampToTime(value.createtime) +"</td><td>"+ 
-                        (value.onlinetime?timestampToTime(value.onlinetime):"未上线过") +
+                        (value.online?"<i class='mdui-icon material-icons status online'>fiber_manual_record</i> 在线":"<i class='mdui-icon material-icons status offine'>fiber_manual_record</i> 离线") +"</td><td>"+ 
+                        dateFormat("yyyy-MM-dd hh:mm:ss",value.createtime) +"</td><td>"+ 
+                        (value.onlinetime?dateFormat("yyyy-MM-dd hh:mm:ss",value.onlinetime):"未上线过") +
                         "</td><td><a class='mdui-text-color-blue-800' href='/device/setting/"+ value.id +"'>设备管理</a></td></tr>";
                     });
                     $(".device-list tbody").html(t);

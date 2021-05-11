@@ -24,7 +24,7 @@
                                     <button class="mdui-btn send-email" type="button">发送验证码</button>
                                 </div>
                                 <div class="actions mdui-clearfix">
-                                    <a class="mdui-btn mdui-ripple more-option" href="/index.php?page=user&view=login">已有账号？</a>
+                                    <a class="mdui-btn mdui-ripple more-option" href="/user/login">已有账号？</a>
                                     <div class="mdui-float-right">
                                     <button type="submit" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn-check">下一步</button>
                                     </div>

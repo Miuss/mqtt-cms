@@ -25,7 +25,7 @@
                                 <div class="mdui-textfield-error">密码不能为空</div>
                             </div>
                             <div class="actions mdui-clearfix">
-                                <a class="mdui-btn mdui-ripple more-option" href="/index.php?page=user&view=resetpass">忘记密码？</a>
+                                <a class="mdui-btn mdui-ripple more-option" href="/user/resetpass">忘记密码？</a>
                                 <div class="mdui-float-right">
                                 <button type="submit" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn-login">登录</button>
                                 </div>
